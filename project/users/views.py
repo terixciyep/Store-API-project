@@ -14,6 +14,7 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from rest_framework.reverse import reverse_lazy
+from rest_framework.views import APIView
 
 from users.models import UserModel
 from users.serializers import UserModelSerializer
@@ -63,7 +64,7 @@ class UserViewSet(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
-class ActivateAccount(GenericAPIView):
+class ActivateAccount(APIView):
     def get(self, request, uidb64, token):
         user = self.get_user(uidb64)
 

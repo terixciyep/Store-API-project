@@ -20,8 +20,12 @@ from django.urls import path, include
 from users.views import ActivateAccount
 from .yasg import urlpatterns as swagger_urls
 from users.urls import router as user_router
+from items.urls import items_router, categories_router
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users', include(user_router.urls)),
+    path('', include(user_router.urls)),
+    path('', include(items_router.urls)),
+    path('', include(categories_router.urls)),
     path('verify_email/<uidb64>/<token>/', ActivateAccount.as_view(), name='verify_account')
 ] + swagger_urls
