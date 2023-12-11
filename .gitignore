@@ -1,0 +1,5 @@
+project/project/migrations/
+project/users/migrations/
+venv/
+.idea/
+project/secret_key.py
