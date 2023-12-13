@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'drf_yasg',
+    'social_django',
     'users',
     'orders',
     'items'
@@ -134,3 +135,11 @@ EMAIL_HOST_USER = 'artyom.korobov51@gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'default from email'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '327199902609-qg7as0ufh1k0hhbtkhno4ro6ffnc2ga3.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'

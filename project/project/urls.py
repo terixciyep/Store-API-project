@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.template.defaulttags import url
 from django.urls import path, include
 
 from users.views import ActivateAccount
@@ -27,5 +28,6 @@ urlpatterns = [
     path('', include(user_router.urls)),
     path('', include(items_router.urls)),
     path('', include(categories_router.urls)),
-    path('verify_email/<uidb64>/<token>/', ActivateAccount.as_view(), name='verify_account')
+    path('verify_email/<uidb64>/<token>/', ActivateAccount.as_view(), name='verify_account'),
+    path('', include('social_django.urls', namespace='social'))
 ] + swagger_urls
