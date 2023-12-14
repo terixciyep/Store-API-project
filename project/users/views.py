@@ -60,7 +60,6 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
-        post_save.connect(create_profile, sender=UserModel)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 

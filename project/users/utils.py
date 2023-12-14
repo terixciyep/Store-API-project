@@ -8,7 +8,7 @@ from django.contrib.auth.tokens import default_token_generator
 def send_mail_for_verify(user):
     context = {
         'user': user,
-        'domain': '127.0.0.1:8000/',
+        'domain': '127.0.0.1:8000',
         'uid': urlsafe_base64_encode(force_bytes(user.id)),
         'token': default_token_generator.make_token(user),
     }

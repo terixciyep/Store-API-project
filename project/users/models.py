@@ -4,12 +4,13 @@ from django.db import models
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, password=None):
+    def create_user(self, email, password=None, username=None):
         if not email:
             raise TypeError('Необходимо ввести почту')
 
         user = self.model(email=self.normalize_email(email))
         user.set_password(password)
+        user.username = username
         user.save()
 
         return user
