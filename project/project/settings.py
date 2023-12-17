@@ -143,3 +143,8 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '327199902609-qg7as0ufh1k0hhbtkhno4ro6ffnc2ga3.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'project.permissions.VerifyPermission',
+    ]
+}
